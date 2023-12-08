@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Ekart| Registration</title>
+    
+</head>
+<body>
+    
+    <div class="container">
+
+         <div  class="row">
+            <div class="col-md-4 mx-auto shadow my-5">
+
+                {% if errmsg %}
+                <div class="alert alert-danger p-3" role="alert">
+                  {{errmsg}}
+                </div>
+              {% endif %}
+              
+                <h2 class="mb-5">User Login</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="Input1" class="form-label">Username</label>
+                        <input type="email" class="form-control" id="Input1" placeholder="name@example.com" name="uname">
+                      </div>
+                      <div class="mb-3">
+                        <label for="Input2" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="Input2" name="upass">
+                      </div> 
+                    
+                      <div class="mb-3">
+                        <input type="submit" class="btn btn-danger" value="Login">
+                        New User?&nbsp;&nbsp; <a href="/register">Register</a>
+                      </div>   
+                </form>
+            </div>
+          
+
+        </div>
+
+    </div>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+</body>
+</html>
